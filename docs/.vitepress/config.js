@@ -4,7 +4,7 @@ export default {
     description: 'Vite & Vue powered static site generator.',
     themeConfig: {
         siteTitle: 'rookieX',
-        logo: '/.vitepress/logo.jpg',
+        logo: '/logo.jpg',
         algolia: {
           appId: '...',
           apiKey: '...',
