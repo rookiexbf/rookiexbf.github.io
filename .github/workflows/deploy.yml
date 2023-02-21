@@ -36,11 +36,10 @@
 #         id: deployment
 #         uses: actions/deploy-pages@v1
 name: Deploy
- # 触发方式：每次代码push到master分支时触发
 on:
   push:
     branches:
-      - master 
+      - main 
 jobs:
   deploy:
     strategy:
