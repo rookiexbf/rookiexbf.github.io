@@ -1,5 +1,4 @@
 export default {
-    base:'/guide/',
     lang: 'en-US',
     title: 'rookieX',
     description: 'Vite & Vue powered static site generator.',
