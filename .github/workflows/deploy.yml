@@ -32,3 +32,8 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.BLOG_DEPLOY }} // 配置在项目里的secrets
+          publish_dir: /docs/.vitepress/dist // 需要发布内容的路径
