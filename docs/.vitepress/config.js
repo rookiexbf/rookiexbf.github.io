@@ -3,7 +3,6 @@ export default {
     lang: 'en-US',
     title: 'rookieX',
     description: 'Vite & Vue powered static site generator.',
-    dest:'./dist',
     themeConfig: {
         siteTitle: 'rookieX',
         logo: '/.vitepress/logo.jpg',
