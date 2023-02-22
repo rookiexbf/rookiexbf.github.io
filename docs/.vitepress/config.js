@@ -1,64 +1,64 @@
-export default {
-    lang: 'en-US',
-    title: 'rookieX',
-    description: 'Vite & Vue powered static site generator.',
-    themeConfig: {
-        siteTitle: 'rookieX',
-        logo: '/logo.jpg',
-        algolia: {
-          appId: '...',
-          apiKey: '...',
-          indexName: '...'
-        },
-        nav: [
-            { text: 'Guide', link: '/guide/' },
-            {
-              text: 'Dropdown Menu',
-              items: [
-                {
-                  // Title for the section.
-                  text: 'Section A Title',
-                  items: [
-                    { text: 'Section A Item A', link: '...' },
-                    { text: 'Section B Item B', link: '...' }
-                  ]
-                }
-              ]
-            },
-            {
-              text: 'Dropdown Menu',
-              items: [
-                {
-                  // You may also omit the title.
-                  items: [
-                    { text: 'Section A Item A', link: '...' },
-                    { text: 'Section B Item B', link: '...' }
-                  ]
-                }
-              ]
-            }
-        ],
-        sidebar: {
-          '/guide/': [
-            {
-              text: 'Guide',
-              items: [
-                { text: 'Index', link: '/guide/' },
-                { text: 'One', link: '/guide/one' },
-                { text: 'Two', link: '/guide/two' }
-              ]
-            }
-          ],
-          '/config/': [
-            {
-              text: 'Config',
-              items: [
-                { text: 'Index', link: '/config/' },
-                { text: 'Three', link: '/config/three' },
-                { text: 'Four', link: '/config/four' }
-              ]
-            }
-          ]
-        }
-    }
+module.exports = {
+  title: 'rookieX的博客',
+  description: 'vitePress blog',
+  head: [
+      ['link', { rel: 'icon', href: '/favicon.ico' }]
+  ],
+  // 主题配置
+  themeConfig: {
+      siteTitle: 'rookieX',
+      logo: '/logo.jpg',
+      smoothScroll: true,
+      lineNumbers: true,
+      // nav:[
+      //     {text: '我的个人网站', link: '' },
+      //     {text: '掘金', link: ''},
+      //     {text: 'Github', link: ''}
+      // ],
+      sidebar:{
+          '/':getSidebar()
+      }
   }
+}
+
+function getSidebar() {
+  return [
+    {
+      text:'Vue',
+      items: [
+        { text: 'nextTick', link: '/vue/nextTick' },
+      ],
+    },
+    // {
+    //   text:'Javascript',
+    //   items:[
+    //     { text: '基础', link: '/Javascript/' },
+    //   ]
+    // },
+    // {
+    //   text:'React',
+    //   items:[
+    //     { text: '基础', link: '/CSS/' },
+    //     { text: '进阶', link: '/CSS/advanced' },
+    //   ]
+    // },
+    // {
+    //   text:'算法',
+    //   items:[
+    //     { text: '基础', link: '/CSS/' },
+    //   ]
+    // },
+    // {
+    //   text:'Browser',
+    //   items:[
+    //     { text: '基础', link: '/Vue/' },
+    //   ]
+    // },
+    // {
+    //   text:'Network',
+    //   items:[
+    //     { text: '基础', link: '/Network/' },
+    //   ]
+    // },
+  ]
+}
