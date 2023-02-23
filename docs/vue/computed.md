@@ -136,14 +136,14 @@ export function defineComputed(
 
 ```ts
 function createComputedGetter(key) {
+  // 读取computed中的属性
   return function computedGetter() {
-    // 读取computed中的属性
     const watcher = this._computedWatchers && this._computedWatchers[key]
     if (watcher) {
       if (watcher.dirty) {
         watcher.evaluate()
       }
-      // 此次分析无关，等分析响应式的时候会聊到
+      // 此次分析无关，等分析响应式的时候会聊到,暂时忽略它吧。
       if (Dep.target) {
         if (__DEV__ && Dep.target.onTrack) {
           Dep.target.onTrack({
