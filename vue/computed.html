@@ -7,7 +7,7 @@
     <meta name="description" content="vitePress blog">
     <link rel="preload stylesheet" href="/assets/style.a47e22b2.css" as="style">
     <link rel="modulepreload" href="/assets/app.f6c47a75.js">
-    <link rel="modulepreload" href="/assets/vue_computed.md.17547012.lean.js">
+    <link rel="modulepreload" href="/assets/vue_computed.md.bd175a2a.lean.js">
     
     <link rel="icon" href="/favicon.ico">
   <script id="check-dark-light">(()=>{const e=localStorage.getItem("vitepress-theme-appearance")||"",a=window.matchMedia("(prefers-color-scheme: dark)").matches;(!e||e==="auto"?a:e==="dark")&&document.documentElement.classList.add("dark")})();</script>
@@ -113,14 +113,14 @@
 <span class="line"><span style="color:#F07178;">    </span><span style="color:#82AAFF;">set</span><span style="color:#F07178;">()</span><span style="color:#89DDFF;">{}</span></span>
 <span class="line"><span style="color:#89DDFF;">}</span></span>
 <span class="line"></span></code></pre></div><p>的形式。</p><div class="language-ts"><button title="Copy Code" class="copy"></button><span class="lang">ts</span><pre class="shiki material-theme-palenight" tabindex="0"><code><span class="line"><span style="color:#C792EA;">function</span><span style="color:#A6ACCD;"> </span><span style="color:#82AAFF;">createComputedGetter</span><span style="color:#89DDFF;">(</span><span style="color:#A6ACCD;font-style:italic;">key</span><span style="color:#89DDFF;">)</span><span style="color:#A6ACCD;"> </span><span style="color:#89DDFF;">{</span></span>
+<span class="line"><span style="color:#89DDFF;">  </span><span style="color:#676E95;font-style:italic;">// 读取computed中的属性</span></span>
 <span class="line"><span style="color:#F07178;">  </span><span style="color:#89DDFF;font-style:italic;">return</span><span style="color:#F07178;"> </span><span style="color:#C792EA;">function</span><span style="color:#F07178;"> </span><span style="color:#82AAFF;">computedGetter</span><span style="color:#89DDFF;">()</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">{</span></span>
-<span class="line"><span style="color:#89DDFF;">    </span><span style="color:#676E95;font-style:italic;">// 读取computed中的属性</span></span>
 <span class="line"><span style="color:#F07178;">    </span><span style="color:#C792EA;">const</span><span style="color:#F07178;"> </span><span style="color:#A6ACCD;">watcher</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">=</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">this.</span><span style="color:#A6ACCD;">_computedWatchers</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">&amp;&amp;</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">this.</span><span style="color:#A6ACCD;">_computedWatchers</span><span style="color:#F07178;">[</span><span style="color:#A6ACCD;">key</span><span style="color:#F07178;">]</span></span>
 <span class="line"><span style="color:#F07178;">    </span><span style="color:#89DDFF;font-style:italic;">if</span><span style="color:#F07178;"> (</span><span style="color:#A6ACCD;">watcher</span><span style="color:#F07178;">) </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#F07178;">      </span><span style="color:#89DDFF;font-style:italic;">if</span><span style="color:#F07178;"> (</span><span style="color:#A6ACCD;">watcher</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">dirty</span><span style="color:#F07178;">) </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#F07178;">        </span><span style="color:#A6ACCD;">watcher</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">evaluate</span><span style="color:#F07178;">()</span></span>
 <span class="line"><span style="color:#F07178;">      </span><span style="color:#89DDFF;">}</span></span>
-<span class="line"><span style="color:#89DDFF;">      </span><span style="color:#676E95;font-style:italic;">// 此次分析无关，等分析响应式的时候会聊到</span></span>
+<span class="line"><span style="color:#89DDFF;">      </span><span style="color:#676E95;font-style:italic;">// 此次分析无关，等分析响应式的时候会聊到,暂时忽略它吧。</span></span>
 <span class="line"><span style="color:#F07178;">      </span><span style="color:#89DDFF;font-style:italic;">if</span><span style="color:#F07178;"> (</span><span style="color:#A6ACCD;">Dep</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">target</span><span style="color:#F07178;">) </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#F07178;">        </span><span style="color:#89DDFF;font-style:italic;">if</span><span style="color:#F07178;"> (</span><span style="color:#A6ACCD;">__DEV__</span><span style="color:#F07178;"> </span><span style="color:#89DDFF;">&amp;&amp;</span><span style="color:#F07178;"> </span><span style="color:#A6ACCD;">Dep</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">target</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">onTrack</span><span style="color:#F07178;">) </span><span style="color:#89DDFF;">{</span></span>
 <span class="line"><span style="color:#F07178;">          </span><span style="color:#A6ACCD;">Dep</span><span style="color:#89DDFF;">.</span><span style="color:#A6ACCD;">target</span><span style="color:#89DDFF;">.</span><span style="color:#82AAFF;">onTrack</span><span style="color:#F07178;">(</span><span style="color:#89DDFF;">{</span></span>
@@ -207,7 +207,7 @@
 <span class="line"><span style="color:#89DDFF;">}</span></span>
 <span class="line"></span>
 <span class="line"></span></code></pre></div><p>上述代码执行顺序 evaluate=&gt;get=&gt;getter 实际最后执行的就是我们对应的computed[key]。执行玩之后<code>this.dirty = false</code>。所以当计算属性中的依赖没有变化的时候直接返回当前的value值，实现缓存。</p></div></div></main><!--[--><!--]--><footer class="VPDocFooter" data-v-d0a24f83 data-v-0e906988><!----><div class="prev-next" data-v-0e906988><div class="pager" data-v-0e906988><a class="pager-link prev" href="/vue/nextTick.html" data-v-0e906988><span class="desc" data-v-0e906988>Previous page</span><span class="title" data-v-0e906988>nextTick</span></a></div><div class="has-prev pager" data-v-0e906988><!----></div></div></footer><!--[--><!--]--></div></div></div></div></div><!----><!--[--><!--]--></div></div>
-    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"339ce6b1\",\"react_index.md\":\"1b68d9e0\",\"vue_nexttick.md\":\"3ddd4e06\",\"vue_computed.md\":\"17547012\"}")</script>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"339ce6b1\",\"vue_nexttick.md\":\"3ddd4e06\",\"vue_computed.md\":\"bd175a2a\",\"react_index.md\":\"1b68d9e0\"}")</script>
     <script type="module" async src="/assets/app.f6c47a75.js"></script>
     
   </body>
