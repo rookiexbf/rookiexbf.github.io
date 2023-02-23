@@ -27,8 +27,15 @@ function getSidebar() {
       text:'Vue',
       items: [
         { text: 'nextTick', link: '/vue/nextTick' },
+        { text: 'computed', link: '/vue/computed' },
       ],
     },
+    // {
+    //   text:'其他',
+    //   items: [
+    //     { text: 'nextTick', link: '/vue/nextTick' },
+    //   ],
+    // },
     // {
     //   text:'Javascript',
     //   items:[
