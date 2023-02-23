@@ -1,0 +1,1 @@
+import{_ as s,c as n,o as a,a as l}from"./app.d871f47d.js";const C=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"javaScript/generator.md"}'),p={name:"javaScript/generator.md"},o=l("",1),e=[o];function t(c,F,r,y,D,i){return a(),n("div",null,e)}const f=s(p,[["render",t]]);export{C as __pageData,f as default};
