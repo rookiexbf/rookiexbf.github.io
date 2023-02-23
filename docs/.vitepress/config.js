@@ -35,6 +35,7 @@ function getSidebar() {
       text:'Javascript',
       items:[
         { text: 'Promise', link: '/Javascript/promise' },
+        { text: 'Async', link: '/Javascript/async' },
       ]
     },
     // {
