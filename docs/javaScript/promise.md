@@ -1,6 +1,6 @@
 # Promise
 
-Promise是什么？在javaScript中它是一个原生对象，是一种异步编程的解决方案。
+`Promise`是什么？在`JavaScript`中它是一个原生对象，是一种异步编程的解决方案。
 
 * [ Promise ](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)。
 

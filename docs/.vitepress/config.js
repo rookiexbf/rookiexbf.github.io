@@ -27,15 +27,16 @@ function getSidebar() {
       text:'Vue',
       collapsed: false,
       items: [
-        { text: 'nextTick', link: '/vue/nextTick' },
-        { text: 'computed', link: '/vue/computed' },
+        { text: 'nextTick源码分析', link: '/vue/nextTick' },
+        { text: 'computed源码分析', link: '/vue/computed' },
       ],
     },
     {
       text:'Javascript',
       items:[
-        { text: 'Promise', link: '/javaScript/promise' },
-        { text: 'Async', link: '/javaScript/async' },
+        { text: 'Promise实现', link: '/javaScript/promise' },
+        { text: 'Generator实现', link: '/javaScript/generator' },
+        { text: 'Async实现', link: '/javaScript/async' },
       ]
     },
     // {
