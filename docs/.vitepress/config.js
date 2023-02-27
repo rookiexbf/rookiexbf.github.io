@@ -27,8 +27,19 @@ function getSidebar() {
       text:'Vue',
       collapsed: false,
       items: [
-        { text: 'nextTick源码分析', link: '/vue/nextTick' },
-        { text: 'computed源码分析', link: '/vue/computed' },
+        { 
+          text:'Vue2',
+          items:[
+            { text: 'nextTick源码分析', link: '/vue2/nextTick' },
+            { text: 'computed源码分析', link: '/vue2/computed' },
+          ]
+        },{
+          text:'Vue3',
+          items:[
+            { text: 'ref源码分析', link: '/vue3/ref' },
+            { text: 'reactive源码分析', link: '/vue3/reactive' },
+          ]
+        }
       ],
     },
     {
