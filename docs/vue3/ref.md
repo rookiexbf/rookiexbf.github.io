@@ -1,4 +1,4 @@
-# ref 原理分析
+# ref 源码分析
 
 在Vue2中，我们的响应式数据定义在 `data` 选项中，通过 `Object.defineProperty` 去循环的递归我们 `data`返回的对象 ，达到监听数据变更的目的。了解Vue3的小伙伴们都知道Vue3的底层的响应式实现由 `Object.defineProperty` 更换成了 `Proxy`。
 
@@ -33,7 +33,7 @@ function createRef(rawValue: unknown, shallow: boolean) {
   return new RefImpl(rawValue, shallow)
 }
 // ...
-// 拦截value的存取行为，做对应的处理。__v_isShallow==false
+// 拦截value的存取行为，做对应的处理。__v_isShallow==false，这个参数主要是对ref、shallowRef去做不同的处理
 class RefImpl<T> {
   private _value: T
   private _rawValue: T
@@ -172,5 +172,5 @@ function triggerEffect(
 看到这里了解Vue2中响应式原理的小伙伴们是不是突然感觉很熟悉了，这里就是Vue3中收集依赖的过程。代码给出部分注释而忽略其中的部分细节，目的是为了让大家对整个流程更加明确。
 我们来理一理依赖收集的过程，首先当我们读取ref.value时，依赖收集的路径就是这样的`trackRefValue`->`trackEffects`->`dep.add()`。当我们改变了ref.value时，我们去通知到对应的effect:`triggerRefValue`->`triggerEffects`->`triggerEffect`->`effect.run()`。本质上还是一个依赖收集的过程，通过ref.dep去收集当前正在执行的activeEffect依赖，然后再ref.value被改变时去通知Effect执行对应的操作。
 
-看到这里是不是点奇怪，说好的`Proxy`呢？情况是这样的，`Proxy`无法处理原始值。所以ref通过创建一个对象并且拦截对象上的value属性，实现对原始值的响应式监听。如果ref的参数为一个对象的话，其内部会调用`reactive`去处理，但是Vue3中还是推荐用`ref`去处理原始值。
+看到这里是不是点奇怪，说好的`Proxy`呢？情况是这样的，`Proxy`无法处理原始值。所以ref通过创建一个对象并且拦截对象上的value属性，实现对原始值的响应式监听。如果ref的参数为一个对象的话，其内部会调用`reactive`去处理，这个时候就涉及到了`Proxy`，但是Vue3中还是推荐用`ref`去处理原始值。
 

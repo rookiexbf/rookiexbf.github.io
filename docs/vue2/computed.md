@@ -241,5 +241,19 @@ export default class Watcher implements DepTarget {
 
 ```
 
-上述代码执行顺序 evaluate=>get=>getter 实际最后执行的就是我们对应的computed[key]。执行玩之后`this.dirty = false`。所以当计算属性中的依赖没有变化的时候直接返回当前的value值，实现缓存。
+上述代码执行顺序 evaluate=>get=>getter 实际最后执行的就是我们对应的computed[key]。执行玩之后`this.dirty = false`。
 
+``` ts
+ update() {
+  if (this.lazy) {
+    // 当依赖发生改变时,将计算属性watcher上的dirty置为ture。计算属性重新读取的时候就会执行watcher.evaluate()从而更新内部的value。
+    this.dirty = true
+  } else if (this.sync) {
+    this.run()
+  } else {
+    queueWatcher(this)
+  }
+}
+```
+
+所以当计算属性中的依赖没有变化的时候直接返回当前的value值，实现缓存的功能。
