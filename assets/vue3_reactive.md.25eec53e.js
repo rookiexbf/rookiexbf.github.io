@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a}from"./app.b1dbcb0f.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"vue3/reactive.md"}'),r={name:"vue3/reactive.md"};function c(o,s,n,i,p,_){return a(),t("div")}const f=e(r,[["render",c]]);export{m as __pageData,f as default};
